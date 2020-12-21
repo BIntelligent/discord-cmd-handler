@@ -49,9 +49,9 @@ After adding the above code to **index.js** you need todo the following steps to
 }
 ```
 6. Save the file.
-7. Now You can make a file `help.js` and paste this [Code](https://github.com/BIntelligent/CommandHandler#help-command).
+7. Now You can make a file `help.js` and paste this [Code](https://github.com/secret-silent-coder/discord-cmd-handler#help-command).
 8. Save the file.
-9. You can make as many as many commands as you like using this [Template](https://github.com/BIntelligent/CommandHandler#commands).
+9. You can make as many as many commands as you like using this [Template](https://github.com/secret-silent-coder/discord-cmd-handler#commands).
 10. Feel free to DM me on Discord `☠ Be Intelligent ☠#2385` if having any issues & Enjoy! 
 # Templates
 ## Commands
