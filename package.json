@@ -1,5 +1,5 @@
 {
-  "name": "discord-cmd-handler",
+  "name": "@secret-silent-coder/discord-cmd-handler",
   "version": "1.0.1",
   "description": "This is a easy Discord js CommandHandler which has CoolDown system.",
   "main": "src/index.js",
@@ -10,6 +10,10 @@
   "scripts": {
     "test": "src/index.js"
   },
-   "author": "silent-coder1",
+  "publishConfig": {
+    "@secret-silent-coder:registry": "https://npm.pkg.github.com"
+  },
+  "repository": "git://github.com/secret-silent-coder/discord-cmd-handler/.git",
+  "author": "secret-silent-coder",
   "license": "MIT"
 }
