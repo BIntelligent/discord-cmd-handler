@@ -11,7 +11,7 @@
     "test": "src/index.js"
   },
   "publishConfig": {
-    "@secret-silent-coder:registry": "https://npm.pkg.github.com"
+    "registry": "http://registry.npmjs.org/"
   },
   "repository": "git://github.com/secret-silent-coder/discord-cmd-handler/.git",
   "author": "secret-silent-coder",
