@@ -1,7 +1,7 @@
 {
-  "name": "@secret-silent-coder/discord-cmd-handler",
-  "version": "1.0.1",
-  "description": "This is a easy Discord js CommandHandler which has CoolDown system.",
+  "name": "discord-cmd-handler",
+  "version": "1.0.0",
+  "description": "This is a easy Discord js CommandHandler which has Cooldown system.",
   "main": "src/index.js",
   "dependencies": {
     "@greencoast/logger": "^1.0.1",
