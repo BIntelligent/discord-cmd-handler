@@ -1,10 +1,10 @@
 # Configuration
-To install the command handler, install `npm` and then in a terminal run this command where you want your bot `npm i @secret-silent-coder/discord-cmd-handler`. After it create your main file (index.js) and add this into it :
+To install the command handler, install `npm` and then in a terminal run this command where you want your bot `npm i @silent-coder/discord-cmd-handler`. After it create your main file (index.js) and add this into it :
 ```js
 const {
     CommandHandler,
     loadCommands
-} = require("@secret-silent-coder/discord-cmd-handler");
+} = require("@silent-coder/discord-cmd-handler");
 const Discord = require("discord.js")
 const client = new Discord.Client();
 
@@ -49,9 +49,9 @@ After adding the above code to **index.js** you need todo the following steps to
 }
 ```
 6. Save the file.
-7. Now You can make a file `help.js` and paste this [Code](https://github.com/secret-silent-coder/discord-cmd-handler#help-command).
+7. Now You can make a file `help.js` and paste this [Code](https://github.com/silent-coder/discord-cmd-handler#help-command).
 8. Save the file.
-9. You can make as many as many commands as you like using this [Template](https://github.com/secret-silent-coder/discord-cmd-handler#commands).
+9. You can make as many as many commands as you like using this [Template](https://github.com/silent-coder/discord-cmd-handler#commands).
 10. Feel free to DM me on Discord `☠ Be Intelligent ☠#2385` if having any issues & Enjoy! 
 # Templates
 ## Commands
@@ -86,7 +86,7 @@ This will auto make help command when adding new commands.
 const Discord = require("discord.js");
 const {
     settingFunction
-} = require("@secret-silent-coder/discord-cmd-handler")
+} = require("@silent-coder/discord-cmd-handler")
 exports.run = async (client, message, args) => {
     let prefix = settingFunction().prefix;
     if (!args[0]) {

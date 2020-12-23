@@ -1,7 +1,7 @@
 {
-  "name": "@secret-silent-coder/discord-cmd-handler",
-  "version": "1.1.0",
-  "description": "This is a easy Discord js CommandHandler which has Cooldown system.",
+  "name": "@silent-coder/discord-cmd-handler",
+  "version": "1.0.1-3",
+  "description": "This is a easy Discord js Command Handler which has Cooldown system.",
   "main": "src/index.js",
   "dependencies": {
     "@greencoast/logger": "^1.0.1",
@@ -14,7 +14,7 @@
     "access": "public",
     "registry": "http://registry.npmjs.org/"
   },
-  "repository": "git://github.com/secret-silent-coder/discord-cmd-handler/.git",
-  "author": "secret-silent-coder",
+  "repository": "git://github.com/BIntelligent/discord-cmd-handler/.git",
+  "author": "BIntelligent",
   "license": "MIT"
 }
