@@ -21,7 +21,7 @@ client.login("TOKEN HERE");
 client.on("ready", () => {
     //I'm using logger and not console beacuse it has colours :) 
     logger.info(`Logged in as ${client.user.tag} Successfully..!!`)
-    loadCommands(client, settings = {
+    cmdHandler(client, settings = {
         logs: {
             consoleLogEnabled: true,
             consoleLogMessage: "{user.tag} ( {user.id} ) ran a command: {command} in {guild.name} ( {channel.name} )",
