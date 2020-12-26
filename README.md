@@ -51,7 +51,7 @@ After adding the above code to **index.js** you need todo the following steps to
 5. Now make a `module.json` and put this inside it. 
 ```js
 {
-    hide: false
+   "hide": false
 }
 ```
 6. Save the file.
