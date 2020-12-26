@@ -2,13 +2,13 @@ const logger = require("@greencoast/logger");
 const fs = require("fs");
 const Discord = require("discord.js")
 const cooldowns = new Discord.Collection();
-let settingFunction;
+let settingFunc;
 
 async function cmdHandler(client, settings) {
     /**
      * Load's commands
      */
-    settingFunction = settings;
+    settingFunc = settings;
     client.commands = new Discord.Collection();
     client.aliases = new Discord.Collection();
     client.helps = new Discord.Collection();
@@ -45,7 +45,7 @@ async function cmdHandler(client, settings) {
         CommandHandler(client, message, settings);
     });
 
-        /**
+    /**
      * Run's command on messageUpdate event.
      */
 
@@ -117,6 +117,9 @@ async function CommandHandler(client, message, settings) {
 
 };
 
+function settingFunction() {
+    return settingFunc
+}
 module.exports = {
     settingFunction,
     logger,

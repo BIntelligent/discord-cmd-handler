@@ -5,6 +5,7 @@
 2. Fixed the cooldown not working bug.
 3. Before there were no variables for logging settings.
 You can find them [here](https://github.com/BIntelligent/discord-cmd-handler#variables-and-settings-help)
+4. Fixed a bug in help command :)
 
 # Configuration
 To install the command handler, install `npm` and then in a terminal run this command where you want your bot `npm i @silent-coder/discord-cmd-handler`. After it create your main file (index.js) and add this into it :
@@ -92,13 +93,13 @@ const {
     settingFunction
 } = require("@silent-coder/discord-cmd-handler")
 exports.run = async (client, message, args) => {
-    let prefix = settingFunction.prefix;
+    let prefix = settingFunction().prefix;
     if (!args[0]) {
         // This will turn the folder (category) into array.
         let module = client.helps.array();
 
         // This will hide a folder from display that includes "hide: true" in their module.json
-        if (!settingFunction.owners.includes(message.author.id)) module = client.helps.array().filter(x => !x.hide);
+        if (!settingFunction().owners.includes(message.author.id)) module = client.helps.array().filter(x => !x.hide);
         require("fs").readdir(require("path").join(__dirname, `/../`), (err, categories) => {
             const embed = new Discord.MessageEmbed()
                 .setColor(0x1d1d1d)
