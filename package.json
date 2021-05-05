@@ -1,14 +1,16 @@
 {
   "name": "@silent-coder/discord-cmd-handler",
-  "version": "2.1.3",
+  "version": "2.1.0",
   "description": "This is a easy Discord js Command Handler which has Cooldown system.",
   "main": "src/index.js",
   "dependencies": {
     "@greencoast/logger": "^1.0.1",
     "discord.js": "^12.4.1"
   },
-  "scripts": {
-    "test": "node src/index.js"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BIntelligent/discord-cmd-handler.git",
+    "homepage": "https://github.com/BIntelligent/discord-cmd-handler/#README.md"
   },
   "keywords": [
     "discord",
@@ -22,11 +24,7 @@
     "js",
     "useful"
   ],
-  "publishConfig": {
-    "access": "public"
-  },
-  "url": "git://https://github.com/BIntelligent/discord-cmd-handler.git",
-  "repository": "https://github.com/BIntelligent/discord-cmd-handler",
   "author": "BIntelligent",
   "license": "MIT"
+
 }
