@@ -17,10 +17,12 @@ async function cmdHandler(client, settings) {
             let moduleConf = require(`${settings.path}/${category}/module.json`);
             moduleConf.path = `${settings.path}/${category}`;
             moduleConf.cmds = [];
+            moduleConf.name = category;
             if (moduleConf) { // If there was no module.json in the folder, return.
-                moduleConf.name = category;
                 client.helps.set(category, moduleConf);
-            };
+            } else {
+              moduleConf.hide = "false";
+              }
             fs.readdir(`${settings.path}/${category}`, (err, files) => {
                 if (err) logger.error(err);
 
