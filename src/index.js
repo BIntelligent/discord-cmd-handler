@@ -18,6 +18,7 @@ async function cmdHandler(client, settings) {
             moduleConf.path = `${settings.path}/${category}`;
             moduleConf.cmds = [];
             if (moduleConf) { // If there was no module.json in the folder, return.
+                moduleConf.name = category;
                 client.helps.set(category, moduleConf);
             };
             fs.readdir(`${settings.path}/${category}`, (err, files) => {
