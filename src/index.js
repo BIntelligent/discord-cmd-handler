@@ -63,7 +63,7 @@ async function cmdHandler(client, settings) {
 
 async function CommandHandler(client, message, settings) {
 
-    if (message.author.bot || message.author === client.user) return;
+    if (!message.author || message.author.bot || message.author === client.user) return;
     let prefix = settings.prefix;
     if (!prefix) throw new TypeError `No Prefix was Provided.`;
 
