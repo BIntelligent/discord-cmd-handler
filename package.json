@@ -1,6 +1,14 @@
 {
   "name": "@silent-coder/discord-cmd-handler",
+<<<<<<< Updated upstream
   "version": "2.2.0",
+=======
+<<<<<<< HEAD
+  "version": "2.1.2",
+=======
+  "version": "2.2.0",
+>>>>>>> 14032c6de24aa34c7232fcbbcb57505520d0b523
+>>>>>>> Stashed changes
   "description": "This is a easy Discord js Command Handler which has Cooldown system.",
   "main": "src/index.js",
   "dependencies": {
