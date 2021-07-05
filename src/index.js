@@ -14,15 +14,15 @@ async function cmdHandler(client, settings) {
     client.helps = new Discord.Collection();
     fs.readdir(settings.path, (err, categories) => {
         categories.forEach(category => {
-            let moduleConf = require(`${settings.path}/${category}/module.json`);
+            let moduleConf = {hide: false};
+            if (fs.existsSync(`${settings.path}/${category}/module.json`)) { // If there was no module.json in the folder, return.
+                moduleConf = require(`${settings.path}/${category}/module.json`);
+            }
             moduleConf.path = `${settings.path}/${category}`;
             moduleConf.cmds = [];
             moduleConf.name = category;
-            if (moduleConf) { // If there was no module.json in the folder, return.
-                client.helps.set(category, moduleConf);
-            } else {
-              moduleConf.hide = "false";
-              }
+            client.helps.set(category, moduleConf);
+
             fs.readdir(`${settings.path}/${category}`, (err, files) => {
                 if (err) logger.error(err);
 
