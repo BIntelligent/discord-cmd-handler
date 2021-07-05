@@ -67,7 +67,13 @@ async function CommandHandler(client, message, settings) {
     let prefix = settings.prefix;
     if (!prefix) throw new TypeError `No Prefix was Provided.`;
 
-    if (settings.mentionPrefix === true) prefix = message.content.match(new RegExp(`^<@!?${client.user.id}> `)) ? message.content.match(new RegExp(`^<@!?${client.user.id}> `))[0] : settings.prefix;
+        settings.db.collection("prefix").find({guild: message.guild.id}).toArray(function (err,data) {
+        if (data.length > 0) {
+            prefix = data[0].prefix;
+        }
+    });
+
+    if (settings.mentionPrefix === true) prefix = message.content.match(new RegExp(`^<@!?${client.user.id}> `)) ? message.content.match(new RegExp(`^<@!?${client.user.id}> `))[0] : prefix;
     if (!message.content.startsWith(prefix)) return;
     let args = message.content.slice(prefix.length).trim().split(/ +/g);
     let cmd = args.shift().toLowerCase();
