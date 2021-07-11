@@ -1,4 +1,4 @@
-# Chnage Logs
+# Change Logs
 - Version V2
 # What's New?
 1. It's completely changed from v1.
@@ -6,6 +6,7 @@
 3. Before there were no variables for logging settings.
 You can find them [here](https://github.com/BIntelligent/discord-cmd-handler#variables-and-settings-help)
 4. Fixed a bug in help command :)
+5- Per Guild Prefix!
 
 # Configuration
 To install the command handler, install `npm` and then in a terminal run this command where you want your bot `npm i @silent-coder/discord-cmd-handler`. After it create your main file (index.js) and add this into it :
@@ -16,8 +17,17 @@ const {
 } = require("@silent-coder/discord-cmd-handler");
 const Discord = require("discord.js")
 const client = new Discord.Client();
+const MongoClient = require('mongodb').MongoClient;
 
 client.login("TOKEN HERE");
+
+MongoClient.connect("mongodb+srv://..", {
+    useUnifiedTopology: true
+}, function (err, db) {
+    if (err) throw err;
+    client.db = db.db("bot");
+
+})
 
 client.on("ready", () => {
     //I'm using logger and not console beacuse it has colours :) 
@@ -34,6 +44,7 @@ client.on("ready", () => {
         EnableCommmandonEdit: true,
         mentionPrefix: true,
         prefix: "?",
+        db: client.db,
         owners: ["YOUR DISCORD ID", "YOUR TRUSTED FRIEND Discord ID"],
         path: __dirname + "/commands",
         logCommands: true
@@ -57,7 +68,7 @@ After adding the above code to **index.js** you need todo the following steps to
 6. Save the file.
 7. Now You can make a file `help.js` and paste this [Code](https://github.com/silent-coder/discord-cmd-handler#help-command).
 8. Save the file.
-9. You can make as many as many commands as you like using this [Template](https://github.com/silent-coder/discord-cmd-handler#commands).
+9. You can make as many commands as you like using this [Template](https://github.com/silent-coder/discord-cmd-handler#commands).
 10. Feel free to DM me on Discord `☠ Be Intelligent ☠#2385` if having any issues & Enjoy! 
 # Templates
 ## Commands
@@ -243,6 +254,12 @@ exports.conf = {
  * It's a unique symbol which everyone can use before the command to use your bot.
  * Example:-
  *          "?".
+ * =====================================================
+ * setting: "db",
+ * This is a @string so you have to put your mongodb uri.
+ * It's a url, used to connect to your mongodb.
+ * Example:-
+ *          "mongodb+srv://myUser:Password..".
  * =====================================================
  * setting: "owners",
  * It's a @Array which mean you can add mutiple values to it.
