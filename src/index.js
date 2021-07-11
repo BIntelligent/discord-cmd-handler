@@ -14,15 +14,15 @@ async function cmdHandler(client, settings) {
     client.helps = new Discord.Collection();
     fs.readdir(settings.path, (err, categories) => {
         categories.forEach(category => {
-            let moduleConf = require(`${settings.path}/${category}/module.json`);
+            let moduleConf = {hide: false};
+            if (fs.existsSync(`${settings.path}/${category}/module.json`)) { // If there was no module.json in the folder, return.
+                moduleConf = require(`${settings.path}/${category}/module.json`);
+            }
             moduleConf.path = `${settings.path}/${category}`;
             moduleConf.cmds = [];
             moduleConf.name = category;
-            if (moduleConf) { // If there was no module.json in the folder, return.
-                client.helps.set(category, moduleConf);
-            } else {
-              moduleConf.hide = "false";
-              }
+            client.helps.set(category, moduleConf);
+
             fs.readdir(`${settings.path}/${category}`, (err, files) => {
                 if (err) logger.error(err);
 
@@ -81,7 +81,13 @@ async function CommandHandler(client, message, settings) {
     let prefix = settings.prefix;
     if (!prefix) throw new TypeError `No Prefix was Provided.`;
 
-    if (settings.mentionPrefix === true) prefix = message.content.match(new RegExp(`^<@!?${client.user.id}> `)) ? message.content.match(new RegExp(`^<@!?${client.user.id}> `))[0] : settings.prefix;
+        settings.db.collection("prefix").find({guild: message.guild.id}).toArray(function (err,data) {
+        if (data.length > 0) {
+            prefix = data[0].prefix;
+        }
+    });
+
+    if (settings.mentionPrefix === true) prefix = message.content.match(new RegExp(`^<@!?${client.user.id}> `)) ? message.content.match(new RegExp(`^<@!?${client.user.id}> `))[0] : prefix;
     if (!message.content.startsWith(prefix)) return;
     let args = message.content.slice(prefix.length).trim().split(/ +/g);
     let cmd = args.shift().toLowerCase();
